@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.localleadbot.pro/:1",
+      "permanent": true
+    }
+  ]
+}
