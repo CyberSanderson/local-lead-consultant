@@ -2,8 +2,15 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "local-lead-consultant.vercel.app"
+        }
+      ],
       "destination": "https://www.localleadbot.pro/$1",
       "permanent": true
     }
   ]
 }
+
