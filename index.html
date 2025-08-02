@@ -10,36 +10,35 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/local lead bot favicon.png">
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9STLQF1P9P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9STLQF1P9P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9STLQF1P9P');
+  </script>
 
-  gtag('config', 'G-9STLQF1P9P');
-</script>
-
-
-  
+  <!-- Stripe Buy Button Script -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
+
 <body>
-  <!-- In your HTML header or navbar -->
+  <!-- Navbar -->
   <header style="display: flex; align-items: center; padding: 10px;">
     <img src="/Local Lead Bot.png" alt="Local Lead Bot Logo" style="height: 40px; margin-right: 10px;">
     <h1 style="margin: 0; font-size: 1.5rem;">Local Lead Bot</h1>
   </header>
 
-  <!-- Header -->
+  <!-- Hero -->
   <header class="hero">
     <div class="container">
       <h1>Sanderson Labousse</h1>
       <p>Helping Local Home Service Businesses Grow with AI-Powered Lead Bots</p>
       <a href="#services" class="cta-button">See How I Can Help You</a>
     </div>
-    
   </header>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="section">
     <div class="container">
       <h2>About Me</h2>
@@ -47,7 +46,7 @@
     </div>
   </section>
 
-  <!-- Credentials Section -->
+  <!-- Credentials -->
   <section id="credentials" class="section light">
     <div class="container">
       <h2>My Credentials</h2>
@@ -58,7 +57,7 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services" class="section">
     <div class="container">
       <h2>What I Offer</h2>
@@ -79,21 +78,21 @@
     </div>
   </section>
 
+  <!-- How It Works -->
   <section id="how-it-works" class="section light">
-  <div class="container">
-    <h2>How It Works</h2>
-    <ol>
-      <li><strong>Your website visitors chat with the AI-powered bot</strong> anytime, day or night, requesting service.</li>
-      <li><strong>Leads are instantly sent via email</strong> straight to your inbox so you can respond fast and never miss an opportunity.</li>
-      <li><strong>All leads are securely logged into Google Sheets</strong> for easy tracking, organization, and follow-up.</li>
-      <li><strong>You grow your business with automated 24/7 lead capture</strong> without lifting a finger.</li>
-    </ol>
-    <p><em>See for yourself visit the demo site and try the chatbot in action!</em></p>
-  </div>
-</section>
+    <div class="container">
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>Your website visitors chat with the AI-powered bot</strong> anytime, day or night, requesting service.</li>
+        <li><strong>Leads are instantly sent via email</strong> straight to your inbox so you can respond fast and never miss an opportunity.</li>
+        <li><strong>All leads are securely logged into Google Sheets</strong> for easy tracking, organization, and follow-up.</li>
+        <li><strong>You grow your business with automated 24/7 lead capture</strong> without lifting a finger.</li>
+      </ol>
+      <p><em>See for yourself visit the demo site and try the chatbot in action!</em></p>
+    </div>
+  </section>
 
-
-  <!-- Demo Section -->
+  <!-- Demo -->
   <section id="demo" class="section light">
     <div class="container">
       <h2>Chatbot Demo</h2>
@@ -102,32 +101,27 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
+  <!-- CTA with Stripe Button -->
   <section class="cta">
     <div class="container">
       <h2>Ready to See Leads Straight into Your Inbox for Your Business?</h2>
-      <a href="mailto:localeadbot@gmail.com" class="cta-button">Let’s Work Together</a>
+      <h3>One-Time Chatbot Setup – $149</h3>
 
+      <stripe-buy-button
+        buy-button-id="buy_btn_1RrUIW0NYMA63YPuSbrvPH89"
+        publishable-key="pk_live_51RrTrK0NYMA63YPugbjBWVDKinDJwDrdog3EWmFtiPy4XUR4Z8qqzGF2t1z30A2CKfLCQVETBgehIxRBMVT5w78W00d7ho9y5V">
+      </stripe-buy-button>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; © 2025 Local Lead Bot™ · Built by Sanderson Labousse</p>
+      <p>&copy; 2025 Local Lead Bot™ · Built by Sanderson Labousse</p>
     </div>
   </footer>
 
   <script src="scripts/main.js"></script>
-  
-
 </body>
 </html>
 
-
-<!-- Triggering redeploy -->
-
-
-<!-- Force Vercel deploy -->
-
-<!-- removed vercel.json -->
