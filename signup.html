@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up - Local Lead Bot</title>
+  <meta name="description" content="Sign up for Local Lead Bot and start converting more local leads with our AI-powered chatbot. Easy setup, no coding required." />
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .signup-container {
+      background: white;
+      max-width: 480px;
+      width: 90%;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0077cc;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    input, select {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1.8px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0077cc;
+      box-shadow: 0 0 6px #0077cca0;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .trust-signals {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #444;
+      text-align: center;
+    }
+    .trust-signals span {
+      display: inline-block;
+      margin: 0 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="signup-container" role="main" aria-labelledby="signup-title">
+    <h1 id="signup-title">Get Started with Local Lead Bot</h1>
+    <p class="subtitle">Sign up today and start converting local leads effortlessly with our AI chatbot.</p>
+
+    <form action="/signup-submit" method="POST" novalidate>
+      <label for="businessName">Business Name *</label>
+      <input type="text" id="businessName" name="businessName" placeholder="Your business name" required />
+
+      <label for="contactName">Your Name *</label>
+      <input type="text" id="contactName" name="contactName" placeholder="Full name" required />
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+
+      <label for="services">Primary Service *</label>
+      <select id="services" name="services" required>
+        <option value="" disabled selected>Select your service</option>
+        <option value="plumbing">Plumbing</option>
+        <option value="electrical">Electrical</option>
+        <option value="hvac">HVAC</option>
+        <option value="roofing">Roofing</option>
+        <option value="locksmith">Locksmith</option>
+        <option value="general_contracting">General Contracting</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="serviceArea">Service Area (City/Region) *</label>
+      <input type="text" id="serviceArea" name="serviceArea" placeholder="e.g., Bronx, NY" required />
+
+      <button type="submit">Create My Account</button>
+    </form>
+
+    <div class="trust-signals" aria-label="Trust and guarantees">
+      <span>🔒 Secure & Private</span>|
+      <span>✅ Easy Setup</span>|
+      <span>💡 AI Powered</span>
+    </div>
+  </main>
+</body>
+</html>

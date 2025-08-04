@@ -4,10 +4,8 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
-
     const targetId = this.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
-
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - 60,
@@ -17,7 +15,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Optional: Button pulse effect on hover (CTA)
+// Button pulse effect on hover (CTA)
 document.querySelectorAll('.cta-button').forEach(button => {
   button.addEventListener('mouseenter', () => {
     button.classList.add('pulse');
@@ -27,7 +25,7 @@ document.querySelectorAll('.cta-button').forEach(button => {
   });
 });
 
-// 🔹 Google Analytics Event Tracking
+// Google Analytics Event Tracking
 window.addEventListener('DOMContentLoaded', () => {
   const ctaBtn = document.getElementById('ctaSeeHow');
   const demoLink = document.getElementById('demoSiteLink');
@@ -62,4 +60,14 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Mobile Navbar Toggle
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
 });
+
