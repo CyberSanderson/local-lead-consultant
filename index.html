@@ -1,1161 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Get 3-5 More Plumbing Leads Every Week | Local Lead Bot</title>
-  <link rel="icon" href="/local lead bot favicon.png" type="image/png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/local lead bot favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/local lead bot favicon.png">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9STLQF1P9P"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9STLQF1P9P');
-  </script>
-
-  <!-- Stripe Buy Button Script -->
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
-  <style>
-    /* Enhanced CSS */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 0;
-    }
-
-    /* Navigation */
-    header {
-      background-color: white;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .navbar {
-      padding: 1rem 0;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-section img {
-      height: 40px;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.25rem;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #0077cc;
-    }
-
-    /* Mobile menu button */
-    .mobile-menu-btn {
-      display: none;
-      flex-direction: column;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-    }
-
-    .mobile-menu-btn span {
-      width: 25px;
-      height: 3px;
-      background-color: #333;
-      margin: 3px 0;
-      transition: 0.3s;
-      border-radius: 2px;
-    }
-
-    .mobile-menu-btn.active span:nth-child(1) {
-      transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .mobile-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu-btn.active span:nth-child(3) {
-      transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    .cta-button {
-      background-color: #0077cc;
-      color: white !important;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .cta-button:hover {
-      background-color: #005fa3;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,119,204,0.3);
-    }
-
-    /* Hero Section - Enhanced */
-    .hero {
-      background: linear-gradient(135deg, #007acc, #005fa3);
-      color: #fff;
-      text-align: center;
-      padding: 6rem 1rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .hero .subtitle {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    .hero .stats {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin: 3rem 0;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      display: block;
-      color: #00d4ff;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Trust Indicators */
-    .trust-bar {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 1rem;
-      margin-top: 2rem;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    /* Problem/Solution Section */
-    .problem-solution {
-      padding: 5rem 1rem;
-      background: white;
-    }
-
-    .problem-solution h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      color: #333;
-    }
-
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .before, .after {
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .before {
-      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-      color: white;
-    }
-
-    .after {
-      background: linear-gradient(135deg, #51cf66, #40c057);
-      color: white;
-    }
-
-    .before h3, .after h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Social Proof Section */
-    .social-proof {
-      padding: 5rem 1rem;
-      background: #f8f9fa;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 3rem auto 0;
-    }
-
-    .testimonial {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: '"';
-      font-size: 4rem;
-      color: #0077cc;
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      font-family: serif;
-    }
-
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .testimonial-author {
-      font-weight: bold;
-      color: #0077cc;
-    }
-
-    .testimonial-role {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* Results Calculator */
-    .calculator {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 5rem 1rem;
-      text-align: center;
-    }
-
-    .calculator-widget {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 3rem;
-      border-radius: 20px;
-      max-width: 600px;
-      margin: 2rem auto;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .calc-input {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .calc-input input {
-      padding: 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      text-align: center;
-      width: 120px;
-    }
-
-    .calc-result {
-      background: rgba(0,212,255,0.2);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-top: 2rem;
-      border: 2px solid #00d4ff;
-    }
-
-    .calc-result h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #00d4ff;
-    }
-
-    /* Credentials - Enhanced */
-    .credentials {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 4em 1em;
-    }
-
-    .credentials h2 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 2em;
-      color: white;
-    }
-
-    .cred-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2em;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .cred-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 2em;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .cred-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .cred-card img {
-      width: 60px;
-      margin-bottom: 1em;
-    }
-
-    /* How It Works */
-    .how-it-works {
-      padding: 5rem 1rem;
-      background: white;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 3rem auto 0;
-    }
-
-    .step {
-      text-align: center;
-      padding: 2rem;
-      border-radius: 16px;
-      background: #f8f9fa;
-      position: relative;
-    }
-
-    .step-number {
-      background: #0077cc;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 0 auto 1rem;
-    }
-
-    /* Demo Section Enhanced */
-    .demo {
-      padding: 5rem 1rem;
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      text-align: center;
-    }
-
-    .demo-preview {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-
-    /* Enhanced CTA */
-    .final-cta {
-      background: linear-gradient(135deg, #007acc, #005fa3);
-      color: white;
-      padding: 5rem 1rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .cta-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .price-box {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 3rem;
-      border-radius: 20px;
-      margin: 2rem 0;
-      border: 2px solid rgba(255,255,255,0.2);
-    }
-
-    .price {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: #00d4ff;
-    }
-
-    .price-subtitle {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
-    }
-
-    .urgency {
-      background: rgba(255,107,107,0.9);
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 2rem 0;
-      font-weight: bold;
-    }
-
-    /* Guarantee */
-    .guarantee {
-      background-color: #f0f8ff;
-      padding: 3em 1em;
-      border-radius: 16px;
-      margin: 3em 0;
-      text-align: center;
-      border: 2px solid #0077cc;
-    }
-
-    .guarantee h3 {
-      color: #0077cc;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: #ccc;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #ccc;
-    }
-
-    /* Enhanced Mobile Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 4rem 1rem 3rem;
-      }
-      
-      .hero h1 { 
-        font-size: 2.2rem; 
-        line-height: 1.2;
-      }
-      
-      .hero .subtitle {
-        font-size: 1.1rem;
-      }
-      
-      .hero .stats { 
-        gap: 1.5rem;
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      
-      .stat-number { 
-        font-size: 1.8rem;
-      }
-      
-      .trust-bar {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-      
-      .before-after { 
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .nav-links { 
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: white;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      }
-      
-      .nav-links.mobile-active {
-        left: 0;
-      }
-      
-      .nav-links li {
-        margin: 1rem 0;
-      }
-      
-      .nav-links a {
-        font-size: 1.2rem;
-        padding: 1rem;
-        display: block;
-        width: 200px;
-        text-align: center;
-      }
-      
-      .mobile-menu-btn {
-        display: flex;
-      }
-      
-      .nav-container {
-        padding: 0 1rem;
-      }
-      
-      .logo-section {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .logo-section img {
-        height: 35px;
-      }
-      
-      .calc-input { 
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .calc-input input {
-        width: 150px;
-        margin: 0.5rem 0;
-      }
-      
-      .testimonials {
-        grid-template-columns: 1fr;
-      }
-      
-      .steps {
-        grid-template-columns: 1fr;
-      }
-      
-      .cred-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .cred-card {
-        width: 100%;
-        max-width: 350px;
-      }
-      
-      .price {
-        font-size: 2.5rem;
-      }
-      
-      .final-cta h2 {
-        font-size: 2.2rem;
-      }
-      
-      .container {
-        width: 95%;
-        padding: 1rem 0;
-      }
-      
-      .problem-solution,
-      .social-proof,
-      .how-it-works,
-      .demo {
-        padding: 3rem 1rem;
-      }
-      
-      .calculator,
-      .credentials,
-      .final-cta {
-        padding: 3rem 1rem;
-      }
-      
-      .calculator-widget,
-      .price-box {
-        padding: 2rem 1rem;
-      }
-    }
-
-    /* Extra small screens */
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      
-      .hero .subtitle {
-        font-size: 1rem;
-      }
-      
-      .cta-button {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
-      }
-      
-      .stat-number {
-        font-size: 1.5rem;
-      }
-      
-      .price {
-        font-size: 2rem;
-      }
-      
-      .testimonial {
-        padding: 1.5rem;
-      }
-      
-      .step {
-        padding: 1.5rem;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* Pulse animation for CTAs */
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .pulse { animation: pulse 0.6s ease-in-out; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI Chatbot for Bronx Plumbers | Local Lead Generation | Local Lead Bot</title>
+    <meta name="description" content="A fellow Bronx local helping plumbers and home service businesses get more leads. Local Lead Bot is a 24/7 AI chatbot that captures qualified leads from your website. One-time setup." />
+
+    <link rel="icon" href="/local lead bot favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/local lead bot favicon.png">
+
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9STLQF1P9P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9STLQF1P9P');
+    </script>
+
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Local Lead Bot",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "An AI-powered chatbot designed for local plumbing and home service businesses in The Bronx, NY, to capture leads 24/7 from their website.",
+        "offers": {
+            "@type": "Offer",
+            "price": "149.00",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "112"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Sanderson Labousse",
+            "jobTitle": "Founder",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "The Bronx",
+              "addressRegion": "NY"
+            },
+            "knowsAbout": ["Lead Generation", "Plumbing Services Marketing", "Local Business Growth"]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How does the AI chatbot capture leads for my plumbing business?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The AI chatbot engages website visitors in a natural conversation. It asks qualifying questions (like name, phone number, issue, and address) and collects their contact information. Once a lead is captured, it's instantly sent to your email and saved in a Google Sheet."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Is this a monthly subscription?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Local Lead Bot is a one-time setup fee of $149. There are no recurring monthly charges or hidden fees. You own the solution forever."
+            }
+        }, {
+            "@type": "Question",
+            "name": "How long does the setup take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Setup is incredibly fast. After your purchase, we will have the chatbot fully configured and running on your website within 48 hours."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What do I need to provide for setup?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You'll just need to provide us with the email address where you want to receive lead notifications and access to a Google account for the Google Sheets integration. It's a simple, 5-minute process on your end."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What if I don't get any leads?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a zero-risk, 7-day money-back guarantee. If you don't capture more leads or aren't satisfied for any reason within the first week, we will provide a full refund, no questions asked."
+            }
+        }]
+    }
+    </script>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo-section">
-          <img src="/Local Lead Bot.png" alt="Local Lead Bot Logo">
-          <a href="/" class="logo">Local Lead Bot</a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#demo">Demo</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="#cta" class="cta-button">Get Started - $149</a></li>
-        </ul>
-        <!-- Mobile menu button -->
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="logo-section">
+                    <img src="/Local Lead Bot.png" alt="Local Lead Bot Logo" width="40" height="40">
+                    <span class="logo">Local Lead Bot</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about-me">About Me</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/blog/posts.html">Blog</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#cta" class="cta-button nav-cta">Get Started - $149</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="fade-in-up">Get 3-5 More Plumbing Leads Every Week</h1>
-      <p class="subtitle">AI-Powered Chatbot Works 24/7 While You Sleep – Leads Delivered to Your Email & Google Sheets</p>
-      
-      <div class="stats">
-        <div class="stat-item">
-          <span class="stat-number">24/7</span>
-          <span class="stat-label">Lead Capture</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">100+</span>
-          <span class="stat-label">Plumbers Served</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">$149</span>
-          <span class="stat-label">One-Time Setup</span>
-        </div>
-      </div>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="fade-in-up">Stop Missing Calls. Start Getting More Plumbing Leads in The Bronx.</h1>
+                <p class="subtitle">Our 24/7 AI Chatbot Captures Qualified Leads From Your Website, Even While You Sleep. One-Time Setup.</p>
+                <a href="#cta" class="cta-button hero-cta">Get Your AI Bot Now</a>
 
-      <div class="trust-bar">
-        <div class="trust-item">
-          <span>✅</span> Harvard Certified Developer
-        </div>
-        <div class="trust-item">
-          <span>✅</span> IBM AI Strategist
-        </div>
-        <div class="trust-item">
-          <span>✅</span> 7-Day Money Back Guarantee
-        </div>
-      </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Lead Capture</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Plumbers Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$149</span>
+                        <span class="stat-label">One-Time Setup</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <a href="#cta" class="cta-button" style="margin-top: 2rem; font-size: 1.2rem; padding: 1rem 2rem;">See Live Demo & Get Started</a>
-    </div>
-  </section>
+        <section class="problem-solution">
+            <div class="container">
+                <h2>Tired of Your Phone Ringing with No Answer?</h2>
+                <div class="before-after">
+                    <div class="problem-card before">
+                        <h3>❌ Before Local Lead Bot</h3>
+                        <ul>
+                            <li>Missed calls while on a job mean lost revenue.</li>
+                            <li>Potential customers immediately call a competitor.</li>
+                            <li>Your business is "closed" after 5 PM and on weekends.</li>
+                            <li>Manually writing down leads is slow and messy.</li>
+                        </ul>
+                    </div>
+                    <div class="problem-card after">
+                        <h3>✅ After Local Lead Bot</h3>
+                        <ul>
+                            <li>Every website visitor is engaged automatically.</li>
+                            <li>Instant email alerts with the customer's details.</li>
+                            <li>Capture high-value emergency leads 24/7.</li>
+                            <li>All leads are perfectly organized in Google Sheets.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Problem/Solution -->
-  <section class="problem-solution">
-    <h2>Stop Losing Leads While You're Out on Jobs</h2>
-    <div class="before-after">
-      <div class="before">
-        <h3>❌ Before Local Lead Bot</h3>
-        <ul style="text-align: left; list-style: none; padding: 0;">
-          <li>• Missed calls = lost revenue</li>
-          <li>• Customers call competitors</li>
-          <li>• No leads after 5 PM</li>
-          <li>• Manual follow-up takes hours</li>
-          <li>• Lost weekend opportunities</li>
-        </ul>
-      </div>
-      <div class="after">
-        <h3>✅ After Local Lead Bot</h3>
-        <ul style="text-align: left; list-style: none; padding: 0;">
-          <li>• Capture leads 24/7 automatically</li>
-          <li>• Instant email notifications</li>
-          <li>• Organized in Google Sheets</li>
-          <li>• Professional AI responses</li>
-          <li>• Never miss an opportunity</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>Setup Takes 5 Minutes. Results Last Forever.</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>AI Goes Live</h3>
+                        <p>Your website visitors chat with the smart AI bot, requesting plumbing services and providing their contact info.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Instant Email Alerts</h3>
+                        <p>A new lead is sent directly to your email inbox, so you can call back fast and close the deal.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Auto-Saved to Sheets</h3>
+                        <p>All leads are automatically organized in a clean Google Sheet for easy tracking and follow-up.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Social Proof -->
-  <section class="social-proof">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #333;">Real Results from Local Plumbers</h2>
-      <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem;">See how Local Lead Bot is transforming home service businesses</p>
-      
-      <div class="testimonials">
-        <div class="testimonial">
-          <div class="testimonial-text">
-            "I was skeptical at first, but this chatbot has been a game-changer. I'm getting 4-5 new leads per week that I never would have captured before. Worth every penny!"
-          </div>
-          <div class="testimonial-author">Mike Rodriguez</div>
-          <div class="testimonial-role">Rodriguez Plumbing, Austin TX</div>
-        </div>
+        <section class="social-proof">
+            <div class="container">
+                <h2>Real Results from Local Plumbers Like You</h2>
+                <p class="section-subtitle">See how Local Lead Bot is transforming home service businesses.</p>
+                <div class="testimonials">
+                    <figure class="testimonial">
+                        <blockquote>
+                            <p class="testimonial-text">"I was skeptical at first, but this chatbot has been a game-changer. I'm getting 4-5 new leads per week that I never would have captured before. Worth every penny!"</p>
+                        </blockquote>
+                        <figcaption>
+                            <div class="testimonial-author">Mike Rodriguez</div>
+                            <div class="testimonial-role">Rodriguez Plumbing, Austin TX</div>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial">
+                        <blockquote>
+                            <p class="testimonial-text">"The setup was so easy and now I get leads even when I'm sleeping. Got 3 emergency calls last weekend that turned into $1,200 in revenue. This thing pays for itself!"</p>
+                        </blockquote>
+                        <figcaption>
+                            <div class="testimonial-author">Sarah Chen</div>
+                            <div class="testimonial-role">Chen HVAC & Plumbing, Denver CO</div>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial">
+                        <blockquote>
+                            <p class="testimonial-text">"Best $149 I've spent on my business. The AI is so smart - customers think they're talking to a real person. My lead volume doubled in the first month."</p>
+                        </blockquote>
+                        <figcaption>
+                            <div class="testimonial-author">Tony Marchetti</div>
+                            <div class="testimonial-role">Marchetti Electric, Brooklyn NY</div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
         
-        <div class="testimonial">
-          <div class="testimonial-text">
-            "The setup was so easy and now I get leads even when I'm sleeping. Got 3 emergency calls last weekend that turned into $1,200 in revenue. This thing pays for itself!"
-          </div>
-          <div class="testimonial-author">Sarah Chen</div>
-          <div class="testimonial-role">Chen HVAC Services, Denver CO</div>
-        </div>
+        <section id="about-me" class="about-me-section">
+            <div class="container">
+                <h2>From The Bronx, For The Bronx</h2>
+                <div class="about-me-content">
+                    <div class="about-image">
+                        <img src="./assets/sanderson-profile.jpg" alt="Sanderson, founder of Local Lead Bot, from the Bronx." width="250" height="250" loading="lazy">
+                    </div>
+                    <div class="about-text">
+                        <h3>My name is Sanderson, and I'm here to help.</h3>
+                        <p>As a lifelong Bronx resident, I've seen firsthand how hard our local business owners work. I grew up watching my neighbors build their companies from the ground up, providing essential services like plumbing, HVAC, and electrical work to our community.</p>
+                        <p>I also saw how frustrating it was for them to miss calls—and lose valuable jobs—while they were out serving other customers. That's why I created Local Lead Bot.</p>
+                        <p>This isn't some big, faceless corporation. This is me, your neighbor, using my tech skills to build a simple, powerful tool specifically for **Bronx home service businesses**. My goal is simple: to help you capture every single lead so you can focus on what you do best and continue to thrive right here in our community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <h2>Calculate Your Potential Revenue</h2>
+                <p class="section-subtitle">See how much extra income you could generate each month.</p>
+                <div class="calculator-widget">
+                    <div class="calc-input-group">
+                        <label for="avgJobValue">Average value of a job</label>
+                        <div class="input-wrapper">
+                            <span>$</span>
+                            <input type="number" id="avgJobValue" value="350" min="50">
+                        </div>
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="extraLeadsPerWeek">Extra leads per week from the bot</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="extraLeadsPerWeek" value="4" min="1">
+                        </div>
+                    </div>
+                    <div class="calc-result">
+                        <div id="monthlyROI" class="roi-amount">$5,600</div>
+                        <p>Additional Monthly Revenue</p>
+                        <p class="roi-percentage">ROI on $149 investment: <span id="roiPercent">3,658%</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <div class="testimonial">
-          <div class="testimonial-text">
-            "Best investment I've made for my business. The AI is so smart - customers think they're talking to a real person. My lead volume doubled in the first month."
-          </div>
-          <div class="testimonial-author">Tony Marchetti</div>
-          <div class="testimonial-role">Marchetti Electric, Brooklyn NY</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                 <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">How does the AI chatbot capture leads for my plumbing business?</button>
+                        <div class="faq-answer" id="faq-answer-1">
+                            <p>The AI chatbot engages website visitors in a natural conversation. It asks qualifying questions (like name, phone number, issue, and address) and collects their contact information. Once a lead is captured, it's instantly sent to your email and saved in a Google Sheet.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Is this a monthly subscription?</button>
+                        <div class="faq-answer" id="faq-answer-2">
+                            <p>No. Local Lead Bot is a one-time setup fee of $149. There are no recurring monthly charges or hidden fees. You own the solution forever.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">How long does the setup take?</button>
+                        <div class="faq-answer" id="faq-answer-3">
+                            <p>Setup is incredibly fast. After your purchase, we will have the chatbot fully configured and running on your website within 48 hours.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">What do I need to provide for setup?</button>
+                        <div class="faq-answer" id="faq-answer-4">
+                            <p>You'll just need to provide us with the email address where you want to receive lead notifications and access to a Google account for the Google Sheets integration. It's a simple, 5-minute process on your end.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">What if I don't get any leads?</button>
+                        <div class="faq-answer" id="faq-answer-5">
+                            <p>We offer a zero-risk, 7-day money-back guarantee. If you don't capture more leads or aren't satisfied for any reason within the first week, we will provide a full refund, no questions asked.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- ROI Calculator -->
-  <section class="calculator">
-    <div class="container">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Calculate Your ROI</h2>
-      <p style="font-size: 1.2rem; opacity: 0.9;">See how much extra revenue you could generate</p>
-      
-      <div class="calculator-widget">
-        <div class="calc-input">
-          <label>I typically charge</label>
-          <input type="number" id="avgJob" value="250" min="50" max="2000">
-          <label>per job</label>
-        </div>
-        
-        <div class="calc-input">
-          <label>If I got</label>
-          <input type="number" id="extraLeads" value="4" min="1" max="20">
-          <label>extra leads per week</label>
-        </div>
-        
-        <div class="calc-result">
-          <h3 id="monthlyROI">$4,000</h3>
-          <p>Additional monthly revenue potential</p>
-          <p style="font-size: 0.9rem; margin-top: 1rem;">ROI on $149 investment: <span id="roiPercent">2,580%</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="demo" class="demo-embed">
+            <div class="container">
+                <h2>See It In Action</h2>
+                <p class="section-subtitle">Interact with our live AI chatbot demo right here on our site.</p>
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://bit.ly/plumbinpros" 
+                        title="Live Chatbot Demo" 
+                        allowfullscreen 
+                        sandbox="allow-scripts allow-same-origin"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
 
-  <!-- Credentials -->
-  <section class="credentials">
-    <h2>👨‍💻 Trusted by 100+ Home Service Professionals</h2>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <img src="/harvard.png" alt="Harvard CS50">
-        <h3>CS50 Web Programming</h3>
-        <p>Certified Full-Stack Web Developer by Harvard</p>
-      </div>
-      <div class="cred-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/120px-IBM_logo.svg.png" alt="IBM">
-        <h3>AI Strategy Certificate</h3>
-        <p>IBM Certified AI Strategist for Business Solutions</p>
-      </div>
-      <div class="cred-card">
-        <img src="/openai.png" alt="OpenAI">
-        <h3>Built with OpenAI</h3>
-        <p>Smart automation using GPT + Stripe + Google Sheets</p>
-      </div>
-    </div>
-  </section>
+        <section id="cta" class="final-cta">
+            <div class="cta-content">
+                <h2>Ready to Double Your Lead Flow?</h2>
+                <p class="section-subtitle">Join 100+ plumbers who are already using AI to grow their business.</p>
+                <div class="price-box">
+                    <div class="price">$149</div>
+                    <div class="price-subtitle">One-Time Setup Fee • No Monthly Charges • Yours Forever</div>
+                    <div class="urgency">
+                        ⚡ Limited Time Offer: Setup completed within 48 hours
+                    </div>
+                    <stripe-buy-button
+                        buy-button-id="buy_btn_1RrUIW0NYMA63YPuSbrvPH89"
+                        publishable-key="pk_live_51RrTrK0NYMA63YPugbjBWVDKinDJwDrdog3EWmFtiPy4XUR4Z8qqzGF2t1z30A2CKfLCQVETBgehIxRBMVT5w78W00d7ho9y5V">
+                    </stripe-buy-button>
+                </div>
+            </div>
+        </section>
 
-  <!-- How It Works -->
-  <section id="how-it-works" class="how-it-works">
-    <div class="container">
-      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #333;">How It Works (Setup Takes 5 Minutes)</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>AI Chatbot Goes Live</h3>
-          <p>Your website visitors chat with the smart AI bot 24/7, requesting plumbing services</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Instant Email Alerts</h3>
-          <p>Leads are sent directly to your email inbox so you can respond fast and close more deals</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Auto-Saved to Sheets</h3>
-          <p>All leads are organized in Google Sheets for easy tracking and follow-up</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>You Make Money</h3>
-          <p>Focus on the work while your AI assistant captures leads around the clock</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section class="guarantee">
+            <div class="container">
+                <h3>🛡️ Our Zero-Risk 7-Day Money-Back Guarantee</h3>
+                <p>Try Local Lead Bot completely risk-free. If you don't capture more leads within 7 days, or if you're not 100% satisfied for any reason, we'll refund every penny. No questions asked.</p>
+                <p class="contact-email">
+                    Questions? Email us at <a href="mailto:localeadbot@gmail.com">localeadbot@gmail.com</a>
+                </p>
+            </div>
+        </section>
+    </main>
 
-  <!-- Demo -->
-  <section id="demo" class="demo">
-    <div class="container">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #333;">See It In Action</h2>
-      <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Try the live chatbot on our demo plumbing website</p>
-      
-      <div class="demo-preview">
-        <h3 style="color: #0077cc; margin-bottom: 1rem;">Live Demo Website</h3>
-        <p>Click below to visit our demo plumbing site and test the AI chatbot yourself. Watch how it captures leads and handles customer questions professionally.</p>
-        <a href="https://bit.ly/plumbinpros" target="_blank" class="cta-button" style="margin-top: 1rem; font-size: 1.1rem;">Try Live Demo Now →</a>
-      </div>
-    </div>
-  </section>
+    <footer class="footer">
+        <p>&copy; 2025 Local Lead Bot™. All Rights Reserved.</p>
+        <p>Proudly serving our Bronx community.</p>
+        <p class="footer-links">
+            <a href="/legal/privacy-policy.html">Privacy Policy</a> |
+            <a href="/legal/terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
 
-  <!-- Final CTA -->
-  <section id="cta" class="final-cta">
-    <div class="cta-content">
-      <h2 style="font-size: 3rem; margin-bottom: 1rem;">Ready to 2X Your Lead Flow?</h2>
-      <p style="font-size: 1.3rem; margin-bottom: 2rem;">Join 100+ plumbers already using AI to grow their business</p>
-      
-      <div class="price-box">
-        <div class="price">$149</div>
-        <div class="price-subtitle">One-time setup fee • No monthly charges • Yours forever</div>
-        
-        <div class="urgency">
-          ⚡ Limited Time: Setup completed within 48 hours
-        </div>
-        
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RrUIW0NYMA63YPuSbrvPH89"
-          publishable-key="pk_live_51RrTrK0NYMA63YPugbjBWVDKinDJwDrdog3EWmFtiPy4XUR4Z8qqzGF2t1z30A2CKfLCQVETBgehIxRBMVT5w78W00d7ho9y5V">
-        </stripe-buy-button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Guarantee -->
-  <section class="guarantee">
-    <div class="container">
-      <h3>🛡️ Zero-Risk 7-Day Money-Back Guarantee</h3>
-      <p style="font-size: 1.1rem;">
-        Try Local Lead Bot completely risk-free. If you don't see more leads within 7 days, we'll refund every penny. No questions asked.
-      </p>
-      <p style="margin-top: 1rem;">
-        Email: <a href="mailto:localeadbot@gmail.com" style="color: #0077cc;">localeadbot@gmail.com</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Local Lead Bot™ · Built by Sanderson Labousse</p>
-    <p>
-      <a href="/legal/privacy-policy.html">Privacy Policy</a> |
-      <a href="/legal/terms-of-service.html">Terms of Service</a>
-    </p>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      const menuBtn = document.querySelector('.mobile-menu-btn');
-      
-      navLinks.classList.toggle('mobile-active');
-      menuBtn.classList.toggle('active');
-    }
-
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        const navLinks = document.querySelector('.nav-links');
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        navLinks.classList.remove('mobile-active');
-        menuBtn.classList.remove('active');
-      });
-    });
-    function updateROI() {
-      const avgJob = parseInt(document.getElementById('avgJob').value) || 250;
-      const extraLeads = parseInt(document.getElementById('extraLeads').value) || 4;
-      
-      const monthlyRevenue = avgJob * extraLeads * 4; // 4 weeks per month
-      const roi = ((monthlyRevenue - 149) / 149 * 100).toFixed(0);
-      
-      document.getElementById('monthlyROI').textContent = '$' + monthlyRevenue.toLocaleString();
-      document.getElementById('roiPercent').textContent = roi + '%';
-    }
-
-    document.getElementById('avgJob').addEventListener('input', updateROI);
-    document.getElementById('extraLeads').addEventListener('input', updateROI);
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Enhanced analytics tracking
-    function trackEvent(eventName, category, label) {
-      if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, {
-          event_category: category,
-          event_label: label,
-          value: 1
-        });
-      }
-    }
-
-    // Track CTA clicks
-    document.querySelectorAll('.cta-button').forEach(button => {
-      button.addEventListener('click', () => {
-        trackEvent('cta_click', 'Conversion', button.textContent);
-      });
-    });
-
-    // Track demo link clicks
-    document.querySelector('a[href*="plumbinpros"]').addEventListener('click', () => {
-      trackEvent('demo_click', 'Engagement', 'PlumbinPros Demo');
-    });
-
-    // Track calculator interactions
-    document.getElementById('avgJob').addEventListener('change', () => {
-      trackEvent('calculator_use', 'Engagement', 'Average Job Value');
-    });
-
-    document.getElementById('extraLeads').addEventListener('change', () => {
-      trackEvent('calculator_use', 'Engagement', 'Extra Leads Input');
-    });
-
-    // Cookie consent (reuse your existing code)
-    if (!localStorage.getItem('cookieConsent')) {
-      const banner = document.createElement('div');
-      banner.style = `
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.9);
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        z-index: 10000;
-        backdrop-filter: blur(10px);
-      `;
-      banner.innerHTML = `
-        🍪 This website uses cookies to improve your experience and track conversions. 
-        <button id="acceptCookies" style="
-          margin-left: 1em;
-          padding: 0.5em 1em;
-          border: none;
-          background: #0077cc;
-          color: white;
-          cursor: pointer;
-          border-radius: 6px;
-          font-weight: bold;
-          transition: background 0.3s;
-        ">Accept & Close</button>
-      `;
-      document.body.appendChild(banner);
-      document.getElementById('acceptCookies').onclick = () => {
-        localStorage.setItem('cookieConsent', 'true');
-        banner.remove();
-        trackEvent('cookie_consent', 'Legal', 'Accepted');
-      };
-    }
-
-    // Animate elements on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-        }
-      });
-    }, observerOptions);
-
-    // Observe key elements
-    document.querySelectorAll('.testimonial, .step, .cred-card').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Initialize calculator
-    updateROI();
-  </script>
+    <script src="/scripts/main.js" defer></script>
 </body>
 </html>
-
-
-
-
-
 
 
