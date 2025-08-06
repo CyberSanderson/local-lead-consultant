@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Blog Index Page -->
+    <url>
+        <loc>https://www.localleadbot.pro/blog/posts.html</loc>
+        <lastmod>2025-08-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Post 1 -->
+    <url>
+        <loc>https://www.localleadbot.pro/blog/the-leaky-faucet-bronx-plumbing-missing-calls.html</loc>
+        <lastmod>2025-08-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog Post 2 -->
+    <url>
+        <loc>https://www.localleadbot.pro/blog/google-business-profile-guide.html</loc>
+        <lastmod>2025-08-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog Post 3 -->
+    <url>
+        <loc>https://www.localleadbot.pro/blog/local-lead-generation-chatbots.html</loc>
+        <lastmod>2025-08-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>
