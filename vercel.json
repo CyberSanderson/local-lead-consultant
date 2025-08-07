@@ -10,33 +10,36 @@
       ],
       "destination": "https://www.localleadbot.pro/$1",
       "permanent": true
+    },
+    {
+      "source": "/blog/:slug.html",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/legal/privacy-policy.html",
+      "destination": "/legal/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/legal/terms-of-service.html",
+      "destination": "/legal/terms-of-service",
+      "permanent": true
     }
-  ]
-}
-
-// Place this file in the root of your project directory.
-// This configuration tells Vercel to rewrite requests for URLs without a .html extension
-// to the corresponding .html file, which is great for SEO.
-{
+  ],
   "rewrites": [
-    // This rule handles the blog index page
     {
       "source": "/blog/posts",
       "destination": "/blog/posts.html"
     },
-    // This rule uses a wildcard to match any blog post
-    // For example, a request to `/blog/the-leaky-faucet-bronx-plumbing-missing-calls`
-    // will serve the content from `/blog/the-leaky-faucet-bronx-plumbing-missing-calls.html`
     {
       "source": "/blog/:slug",
       "destination": "/blog/:slug.html"
     },
-    // Rule for the privacy policy page
     {
       "source": "/legal/privacy-policy",
       "destination": "/legal/privacy-policy.html"
     },
-    // Rule for the terms of service page
     {
       "source": "/legal/terms-of-service",
       "destination": "/legal/terms-of-service.html"
