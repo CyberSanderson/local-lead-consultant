@@ -54,10 +54,15 @@ h2 {
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color:white;
+    color: #666; /* Adjusted for better contrast on light backgrounds */
     max-width: 600px;
     margin: 0 auto 3rem auto;
 }
+
+.dark-bg .section-subtitle {
+    color: rgba(255, 255, 255, 0.8); /* Subtitle color for dark backgrounds */
+}
+
 
 .cta-button {
     background-color: var(--primary-color);
@@ -386,6 +391,10 @@ h2 {
     color: white;
 }
 
+.calculator-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .calculator-widget {
     background: rgba(255,255,255,0.05);
     padding: 3rem;
@@ -494,25 +503,40 @@ h2 {
 .faq-item.active .faq-answer { max-height: 200px; }
 
 
-/* --- DEMO SECTION --- */
-.demo { background: var(--bg-light); text-align: center; }
-.demo-preview {
-    background: var(--bg-off-white);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.05);
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #eee;
+/* --- DEMO EMBED SECTION --- */
+.demo-embed {
+    background: var(--bg-light);
 }
-.demo-preview h3 { color: var(--primary-color); margin-bottom: 1rem; }
-.demo-preview .cta-button { margin-top: 1.5rem; font-size: 1.1rem; }
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Adjusted height for better visibility */
+    margin: 2rem auto;
+    max-width: 900px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
 /* --- FINAL CTA --- */
 .final-cta {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white;
     text-align: center;
+}
+
+.final-cta .section-subtitle {
+    color: rgba(255,255,255, 0.8);
 }
 
 .cta-content { max-width: 800px; margin: 0 auto; }
@@ -577,7 +601,7 @@ footer {
 /* --- RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
     h2 { font-size: 2rem; }
-    .container { padding: 3rem 0; }
+    .container { padding: 3rem 1.5rem; } /* Added horizontal padding */
     
     .nav-links {
         position: fixed;
@@ -601,7 +625,6 @@ footer {
     
     .stats { flex-direction: column; gap: 1.5rem; align-items: center; }
 
-    /* NEW: About Me Mobile styles */
     .about-me-content {
         flex-direction: column;
         text-align: center;
@@ -617,39 +640,8 @@ footer {
     
     .price-box { padding: 2rem 1rem; }
     
-    .nav-container, .container { width: 95%; }
-}
-/* --- NEW: IFRAME EMBED STYLES --- */
-.iframe-container {
-    position: relative;
-    width: 100%;
-    /* Increased height for better visibility of chatbot */
-    height: 700px;
-    margin: 2rem auto;
-    /* Increased max-width to allow the demo to be larger */
-    max-width: 900px; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    overflow: scroll; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-/* Make the iframe a bit shorter on mobile */
-@media (max-width: 768px) {
     .iframe-container {
-        /* Adjusted mobile height for better fit */
         height: 600px;
         max-height: 85vh;
     }
 }
-

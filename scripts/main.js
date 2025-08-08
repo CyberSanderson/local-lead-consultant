@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Track demo link click
-    const demoLink = document.querySelector('a[href*="plumbinpros"]');
-    if (demoLink) {
-        demoLink.addEventListener('click', () => {
-            trackEvent('demo_click', 'Engagement', 'Live Demo Link');
+    // Track Stripe buy button click
+    const stripeButton = document.querySelector('stripe-buy-button');
+    if (stripeButton) {
+        stripeButton.addEventListener('click', () => {
+            trackEvent('begin_checkout', 'Conversion', 'Stripe Buy Button');
         });
     }
 
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- Intersection Observer for Animations ---
-    const animatedElements = document.querySelectorAll('.step, .testimonial, .problem-card, .about-me-content');
+    const animatedElements = document.querySelectorAll('.step, .testimonial, .problem-card, .about-me-content, .calculator-widget');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
