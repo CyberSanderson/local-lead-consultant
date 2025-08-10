@@ -31,4 +31,12 @@
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
+
+    <!-- Blog Post 4 -->
+    <url>
+        <loc>https://www.localleadbot.pro/blog/exclusive-plumbing-leads</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
