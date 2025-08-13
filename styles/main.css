@@ -1,3 +1,6 @@
+/* Import the "Inter" font to match the blog pages */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 /* --- CSS RESET & GLOBAL STYLES --- */
 *,
 *::before,
@@ -27,7 +30,8 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Use the "Inter" font for site-wide consistency */
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     background-color: var(--bg-light);
     color: var(--text-dark);
@@ -54,15 +58,14 @@ h2 {
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: #666; /* Adjusted for better contrast on light backgrounds */
+    color: #666;
     max-width: 600px;
     margin: 0 auto 3rem auto;
 }
 
 .dark-bg .section-subtitle {
-    color: rgba(255, 255, 255, 0.8); /* Subtitle color for dark backgrounds */
+    color: rgba(255, 255, 255, 0.8);
 }
-
 
 .cta-button {
     background-color: var(--primary-color);
@@ -348,7 +351,7 @@ h2 {
     color: #777;
 }
 
-/* --- NEW: ABOUT ME SECTION --- */
+/* --- ABOUT ME SECTION --- */
 .about-me-section {
     background: var(--bg-light);
 }
@@ -445,7 +448,6 @@ h2 {
 }
 .calc-input-group input:focus { outline: none; }
 
-
 .calc-result {
     background: rgba(0,212,255,0.1);
     padding: 2rem;
@@ -502,31 +504,24 @@ h2 {
 .faq-answer p { padding: 0 1rem 1.5rem 1rem; }
 .faq-item.active .faq-answer { max-height: 200px; }
 
-
 /* --- DEMO EMBED SECTION --- */
 .demo-embed {
     background: var(--bg-light);
-}
-
-/* in main.css */
-
-/* This new rule prevents scrollbars on the full-width section */
-.demo-embed {
+    /* Prevents scrollbar from the full-width iframe container */
     overflow-x: hidden; 
 }
 
 .iframe-container {
-    width: 100vw; /* Sets width to 100% of the viewport width */
-    max-width: 100vw; /* Overrides any previous max-width */
+    width: 100vw;
+    max-width: 100vw;
     position: relative;
     left: 50%;
-    transform: translateX(-50%); /* Centers the full-width element */
-
+    transform: translateX(-50%);
     height: 750px;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    border-radius: 0; /* Removes rounded corners for an edge-to-edge look */
-    box-shadow: none; /* Removes shadow for a cleaner integration */
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
 }
 
@@ -602,7 +597,6 @@ footer {
 .footer-links { margin-top: 1rem; }
 
 /* --- ANIMATIONS --- */
-/* Set initial state for animated elements to prevent flash */
 .step, .testimonial, .problem-card, .about-me-content, .calculator-widget {
     opacity: 0;
 }
@@ -616,6 +610,32 @@ footer {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* --- BLOG POST SPECIFIC STYLES --- */
+/* This ensures blog pages that don't use Tailwind still look good */
+.blog-post-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+.blog-post-container h1, .blog-post-container h2, .blog-post-container h3 {
+    color: #1e3a8a; /* A deep blue to match Tailwind style */
+}
+.blog-post-container p {
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.blog-post-container a {
+    color: #2563eb; /* A standard blue link color */
+    text-decoration: none;
+}
+.blog-post-container a:hover {
+    text-decoration: underline;
+}
+.blog-post-container ul {
+    list-style-position: inside;
+    margin-bottom: 1.25rem;
+}
 
 /* --- RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
@@ -659,9 +679,7 @@ footer {
     
     .price-box { padding: 2rem 1rem; }
     
-    /* Mobile fix for the embedded chatbot */
     .iframe-container {
-        height: 75vh; /* Use viewport height for responsiveness */
-        max-height: none; /* Remove max-height constraint on mobile */
+        height: 75vh;
     }
 }
