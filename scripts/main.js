@@ -128,3 +128,51 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => observer.observe(el));
 
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Back to Top Button Logic
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    };
+
+    backToTopButton.addEventListener('click', function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Smooth scroll for any internal links (optional but good for UX)
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add a little animation to the CTA button on load
+    const ctaButton = document.getElementById('cta-button');
+    if (ctaButton) {
+        ctaButton.style.transition = 'transform 0.5s ease-out';
+        setTimeout(() => {
+            ctaButton.style.transform = 'scale(1.02)';
+        }, 500);
+        setTimeout(() => {
+            ctaButton.style.transform = 'scale(1)';
+        }, 1000);
+    }
+});
