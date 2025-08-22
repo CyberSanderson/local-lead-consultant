@@ -9,11 +9,25 @@
     </url>
 
     <url>
-        <loc>https://www.localleadbot.pro/blog/posts</loc> <lastmod>2025-08-19</lastmod>
+        <loc>https://www.localleadbot.pro/blog/posts</loc>
+        <lastmod>2025-08-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
+    <url>
+        <loc>https://www.localleadbot.pro/blog/your-new-blog-post-slug-1</loc>
+        <lastmod>2025-08-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.localleadbot.pro/blog/your-new-blog-post-slug-2</loc>
+        <lastmod>2025-08-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
         <loc>https://www.localleadbot.pro/blog/local-lead-marketing-bronx-plumbers</loc>
         <lastmod>2025-08-19</lastmod>
